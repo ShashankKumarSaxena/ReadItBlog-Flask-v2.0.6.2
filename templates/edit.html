@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('{{url_for('static',filename='images/bg_1.jpg')}}');" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
+        <div class="col-md-9 ftco-animate pb-5 text-center">
+          <h1 class="mb-3 bread">Add/Edit Posts</h1>
+          <p class="breadcrumbs"><span class="mr-2"><a href="/">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>About <i class="ion-ios-arrow-forward"></i></span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Message flashing here  -->
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-success" role="alert">
+  {{message}}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+<h3>Add/Edit Posts</h3>
+
+<!-- main-post-image, intro-title, intro-para, main-title, main-para, post-tags, publisher-name, publisher-desc, total-comments, post_slug -->
+
+<form action="/edit/{{sno}}" class="bg-light p-4 p-md-5 contact-form" method="post">
+    <div class="form-group">
+      <input type="text" name="main_post_image" id="main_post_image" class="form-control" placeholder="Main post image" required value={{post.main_post_title}}>
+    </div>
+    <div class="form-group">
+        <textarea name="intro_title" required id="intro_title" cols="30" rows="7" class="form-control" placeholder="Intro Title">{{post.intro_title}}</textarea>
+    </div>
+    <div class="form-group">
+        <textarea name="intro_para" required id="intro_para" cols="30" rows="7" class="form-control" placeholder="Intro Paragraph">{{post.intro_para}}</textarea>
+    </div>
+    <div class="form-group">
+        <textarea name="main_title" required id="main_title" cols="30" rows="7" class="form-control" placeholder="Main Title">{{post.main_title}}</textarea>
+      </div>
+    <div class="form-group">
+      <textarea name="main_para" required id="main_para" cols="30" rows="7" class="form-control" placeholder="Main Paragraph">{{post.main_para}}</textarea>
+    </div>
+    <div class="form-group">
+      <textarea name="main_para2" required id="main_para2" cols="30" rows="7" class="form-control" placeholder="Main Paragraph">{{post.main_para2}}</textarea>
+    </div>
+    <div class="form-group">
+      <input type="text" name="main_img" id="main_img" class="form-control" placeholder="Main Image" value={{post.main_img}}>
+    </div>
+    <div class="form-group">
+      <input type="text" name="post_tag" class="form-control" id="post_tag" placeholder="Tags" value={{post.post_tag}}>
+    </div>
+    <div class="form-group">
+      <input type="text" name="pub_name" class="form-control" id="pub_name" placeholder="Publisher Name" required value={{post.publisher_name}}>
+    </div>
+    <div class="form-group">
+      <input type="text" name="pub_img" class="form-control" id="pub_img" placeholder="Publisher Image" value={{post.pub_img}}>
+    </div>
+    <div class="form-group">
+      <textarea name="pub_desc" required cols="30" rows="7" id="pub_desc" class="form-control" placeholder="Publisher Description">{{post.publisher_desc}}</textarea>
+    </div>
+    <div class="form-group">
+      <input type="text" name="post_slug" id="post_slug" class="form-control" placeholder="Post Slug" required value={{post.post_slug}}>
+    </div>
+    <div class="form-group">
+      <input type="submit" value="Submit" class="btn btn-primary py-3 px-5">
+    </div>
+  </form>
+
+{% endblock %}

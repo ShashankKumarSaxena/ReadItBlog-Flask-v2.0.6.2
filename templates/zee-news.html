@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head> 
+  <title>LiveTV</title>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-2069755-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-2069755-1');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script type="text/javascript" src="https://staticfiles.vidgyor.com/live/dai/js/vidgyor_livemidroll_vjs_zee_static.min.js"></script>
+  <style type="text/css">
+
+  body{
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    width: 100vw !important;
+    height: 100vh !important;
+    font-family: arial, verdana, sans-serif;
+    overflow: hidden;
+  }
+
+  </style>
+
+</head>
+
+<body>
+
+<div id="playerContainer" style="background:black;height:100%;width:100%"></div>
+
+<script type="text/javascript">
+  var channelName = "183_english";
+  var posterImage = "";
+  var videoUrl = ""; //By default keep it blank. We are currently calling the token auth api to get the live stream internally. Pass url in case you need to override.
+  var isMute = false;  
+  var isAutoplay = true;
+
+  var pathStr = document.location.href;
+  var ref_url = document.referrer;
+  var win_ref_url = window.location.href;
+
+
+  if(pathStr && pathStr.indexOf("#noautoplay") > -1){
+    isAutoplay = false;
+  }
+  if(pathStr.indexOf("#mute") > -1){
+    isMute = true;
+  }
+
+  VIDGYOR.loadPlayer(posterImage,videoUrl,channelName,isMute,isAutoplay);
+
+</script>
+
+</body>
+</html>

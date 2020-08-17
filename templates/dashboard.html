@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('{{url_for('static',filename='images/bg_1.jpg')}}')" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
+        <div class="col-md-9 ftco-animate pb-5 text-center">
+          <h1 class="mb-3 bread">Add/Edit Posts</h1>
+          <!-- <p class="breadcrumbs"><span class="mr-2"><a href="/">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>About <i class="ion-ios-arrow-forward"></i></span></p> -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- Message flashing here  -->
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-success" role="alert">
+  {{message}}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+  <hr>
+  <h3>Basic Actions</h3>
+  <div class="form-group">
+    <a href="/logout" class="btn btn-primary py-3 px-5">Logout</a>
+    </div>
+    <div class="form-group">
+      <a href="/edit/0" class="btn btn-primary py-3 px-5">Add</a>
+    </div>
+  <hr>
+
+  <h3>Upload File</h3>
+  <form action="/upload" method="post" enctype="multipart/form-data">
+  <input type="file" value="Upload" name="file"> 
+  <button class="btn btn-primary py-3 px-4">Upload</button>
+</form>
+  <hr>
+  <h3>Edit/Delete posts</h3>
+  <!-- <h1>Edit Posts</h1> -->
+<table class="table">
+    <thead>
+      <tr>
+        <th>Sno</th>
+        <th>Title</th>
+        <th>Date</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for p in post %}
+      <tr>
+        <td>{{p.sno}}</td>
+        <td>{{p.main_title}}</td>
+        <td>{{p.date}}</td>
+        <td><a href="/edit/{{p.sno}}" class="btn btn-secondary">Edit</a></td>
+        <td><a href="/delete/{{p.sno}}" class="btn btn-secondary">Delete</a></td>
+      </tr>
+      {% endfor %}
+</tbody>
+</table>
+
+
+
+
+
+{% endblock %}

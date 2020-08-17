@@ -1,0 +1,12 @@
+{
+    "params":
+    {
+        "admin_user": "",
+        "admin_pass": "",
+        "database_loc": "",
+        "blog_name": "",
+        "file_upload_loc": "",
+        "basic_user_nm":"",
+        "basic_user_pass":""
+    }
+}

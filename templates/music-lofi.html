@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('{{url_for('static',filename='images/bg_1.jpg')}}');" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
+        <div class="col-md-9 ftco-animate pb-5 text-center">
+          <h1 class="mb-3 bread">Lofi Radio</h1>
+          <p class="breadcrumbs"><span class="mr-2"><a href="/">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>About <i class="ion-ios-arrow-forward"></i></span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+<div class="container" style="margin: 0 auto;">
+<h3>Listen to Lofi beats!</h3>
+
+<iframe width="703" height="395" src="https://www.youtube.com/embed/5qap5aO4i9A" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<hr><br>
+<iframe width="703" height="395" src="https://www.youtube.com/embed/DWcJFNfaw9c" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+{% endblock %}
