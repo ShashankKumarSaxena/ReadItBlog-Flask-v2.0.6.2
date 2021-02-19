@@ -281,7 +281,7 @@ def adpanel():
     if request.method == 'POST':
         username = request.form.get("uname")
         passsword = request.form.get("pass")
-        if(username == "shashank@27" and passsword == "vishu@2004blogadmin27"):
+        if(username == "<admin_username>" and passsword == "<admin_pass>"):
             # set the session variable
             session['user'] = username
             post = Posts.query.all()
