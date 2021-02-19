@@ -12,12 +12,12 @@ db = SQLAlchemy(app)
 
 local_server = True
 
-app.config['UPLOAD_FOLDER'] = "D:\\Flask python learn1\\My own practice\\website1prc\\upload_files"
-
+app.config['UPLOAD_FOLDER'] = "FOLDER_LOCATION_TO_STORE_UPLOADED_FILES"
 if(local_server):
-    app.config['SQLALCHEMY_DATABASE_URI'] = "mysql://root:@localhost/flaskprac2"
+    app.config['SQLALCHEMY_DATABASE_URI'] = "mysql://root:@localhost/flaskprac2" # Not removing it so that you can add your own
 else:
-    pass
+    pass 
+    # going to do it in future 
 
 
 class Contact(db.Model):
